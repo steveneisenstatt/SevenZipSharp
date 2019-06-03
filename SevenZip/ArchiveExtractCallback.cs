@@ -532,7 +532,7 @@ namespace SevenZip
 
             foreach (char chr in Path.GetInvalidFileNameChars())
             {
-                for (int i = 0; i < splittedFileName.Count; i++)
+                for (int i = fileName.ToLower().StartsWith(@"\\?\unc\") ? 8 : 0; i < splittedFileName.Count; i++)
                 {
                     if (chr == ':' && i == 0)
                     {
@@ -563,10 +563,13 @@ namespace SevenZip
                 for (int i = 1; i < splittedFileName.Count - 1; i++)
                 {
                     tfn += Path.DirectorySeparatorChar + splittedFileName[i];
-                    if (!Directory.Exists(tfn))
-                    {
-                        Directory.CreateDirectory(tfn);
-                    }
+                    try {
+                        if (!Directory.Exists(tfn))
+                        {
+
+                            Directory.CreateDirectory(tfn);
+                        }
+                     } catch (IOException) {}
                 }
             }
 
