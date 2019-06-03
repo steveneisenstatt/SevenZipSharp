@@ -430,6 +430,19 @@ namespace SevenZip
     }
 
     /// <summary>
+    /// Common properties used by the library.
+    ///</summary>
+    internal static class Common {
+
+        /// <summary>
+        /// Buffer size used when opening files to read or write.
+        ///</summary>
+        internal static int BufferSize {
+            get { return 1024 * 500; }
+        }
+    }
+
+    /// <summary>
     /// Struct for storing information about files in the 7-zip archive.
     /// </summary>
     public struct ArchiveFileInfo

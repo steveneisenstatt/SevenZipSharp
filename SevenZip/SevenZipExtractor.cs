@@ -1233,7 +1233,7 @@ namespace SevenZip
                             else
                             {
                                 using (var file = new FileStream(extractFileCallbackArgs.ExtractToFile, FileMode.CreateNew,
-                                                              FileAccess.Write, FileShare.None, 8192))
+                                                              FileAccess.Write, FileShare.None, Common.BufferSize))
                                 {
                                     ExtractFile(archiveFileInfo.Index, file);
                                 }

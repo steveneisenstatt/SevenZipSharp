@@ -335,7 +335,7 @@ namespace SevenZip
             int i = 0;
             while (File.Exists(fileName))
             {
-                Streams.Add(new FileStream(fileName, FileMode.Open));
+                Streams.Add(new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, Common.BufferSize));
                 long length = Streams[i].Length;
                 StreamOffsets.Add(i++, new KeyValuePair<long, long>(StreamLength, StreamLength + length));
                 StreamLength += length;

@@ -861,7 +861,7 @@ namespace SevenZip
                    (CompressionMode != CompressionMode.Create && _compressingFilesOnDisk ||
                     _updateData.FileNamesToModify != null)
                 ? new InStreamWrapper(
-                    new FileStream(_archiveName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite),
+                    new FileStream(_archiveName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, Common.BufferSize),
                     true)
                 : null;
         }
@@ -1349,7 +1349,7 @@ namespace SevenZip
 
                     streamDict.Add(
                         pair.Key,
-                        new FileStream(pair.Value, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
+                        new FileStream(pair.Value, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, Common.BufferSize));
                 }
             }
 

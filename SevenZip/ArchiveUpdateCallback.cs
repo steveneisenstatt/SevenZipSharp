@@ -627,7 +627,7 @@ namespace SevenZip
                     if (File.Exists(_files[index].FullName))
                     {
                         _fileStream = new InStreamWrapper(
-                            new FileStream(_files[index].FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite),
+                            new FileStream(_files[index].FullName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, Common.BufferSize),
                             true);
                     }
                 }

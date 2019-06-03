@@ -205,7 +205,7 @@
         /// <exception cref="System.ArgumentException"/>
         public static InArchiveFormat CheckSignature(string fileName, out int offset, out bool isExecutable)
         {
-            using (var fs = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (var fs = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, Common.BufferSize))
             {
                 try
                 {

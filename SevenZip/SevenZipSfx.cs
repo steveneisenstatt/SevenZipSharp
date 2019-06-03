@@ -434,7 +434,7 @@
             using (Stream sfxStream = File.Create(sfxFileName))
             {
                 using (
-                    Stream archive = new FileStream(archiveFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
+                    Stream archive = new FileStream(archiveFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, Common.BufferSize)
                     )
                 {
                     MakeSfx(archive, GetDefaultSettings(), sfxStream);
@@ -449,7 +449,7 @@
         /// <param name="sfxStream">The stream to write the self-extracting executable to.</param>
         public void MakeSfx(string archiveFileName, Stream sfxStream)
         {
-            using (Stream archive = new FileStream(archiveFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
+            using (Stream archive = new FileStream(archiveFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, Common.BufferSize)
                 )
             {
                 MakeSfx(archive, GetDefaultSettings(), sfxStream);
@@ -467,7 +467,7 @@
             using (Stream sfxStream = File.Create(sfxFileName))
             {
                 using (
-                    Stream archive = new FileStream(archiveFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
+                    Stream archive = new FileStream(archiveFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, Common.BufferSize)
                     )
                 {
                     MakeSfx(archive, settings, sfxStream);
@@ -483,7 +483,7 @@
         /// <param name="sfxStream">The stream to write the self-extracting executable to.</param>
         public void MakeSfx(string archiveFileName, SfxSettings settings, Stream sfxStream)
         {
-            using (Stream archive = new FileStream(archiveFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
+            using (Stream archive = new FileStream(archiveFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, Common.BufferSize)
                 )
             {
                 MakeSfx(archive, settings, sfxStream);

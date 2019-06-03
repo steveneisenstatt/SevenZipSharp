@@ -143,7 +143,7 @@ namespace SevenZip
                 try
                 {
                     var wrapper = new InStreamWrapper(
-                        new FileStream(name, FileMode.Open, FileAccess.Read, FileShare.ReadWrite), true);
+                        new FileStream(name, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, Common.BufferSize), true);
                     _wrappers.Add(name, wrapper);
                     inStream = wrapper;                    
                 }
